@@ -7,20 +7,20 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references:{
+          model:'aplicatio_jobs',
+          key:'interview_id'
+        }
       },
       date_interview: {
-        type: Sequelize.DATE,
-        allowNull: false,
-       
+        type: Sequelize.DATE
       },
       confir_interview: {
-        type: Sequelize.BOOLEAN,
-        defaultValue: false,
-        
+        type: Sequelize.BOOLEAN
       },
       time_interview: {
-        type: Sequelize.TIME,
+        type: Sequelize.TIME
       }
     }, {
       timestamps: false,

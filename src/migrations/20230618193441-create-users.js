@@ -22,7 +22,8 @@ module.exports = {
         },
       },
       password: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       avatar: {
         type: Sequelize.STRING
@@ -30,11 +31,18 @@ module.exports = {
       url_avatar: {
         type: Sequelize.TEXT
       },
-      validate: {
-        type: Sequelize.BOOLEAN
-      }
-    }, {
-      timestamps: false,
+      validate_user: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
+      },
+      createdAt: {
+        allowNull: false,
+        type: Sequelize.DATE,
+      },
+      updatedAt: {
+        allowNull: false,
+        type: Sequelize.DATE,
+      },
     });
   },
   async down(queryInterface, Sequelize) {

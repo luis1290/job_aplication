@@ -1,6 +1,7 @@
 const express = require('express');
 const apiRoutes = require('./routes');
 const cors = require("cors");
+const errorRoutes = require('./routes/errors.routes');
 
 const PORT = process.env.PORT || 8000;
 
@@ -15,7 +16,8 @@ app.get('/', (req, res) => {
   res.send('Welcome')
 })
 
-// apiRoutes(app);
+apiRoutes(app);
+errorRoutes(app);
 
 app.listen(PORT, () => {
   console.log(`Servidor escuchando en el puerto ${PORT}`)

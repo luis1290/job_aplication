@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
     password: DataTypes.STRING,
     avatar: DataTypes.STRING,
     url_avatar: DataTypes.STRING,
-    validate: DataTypes.BOOLEAN
+    validate_user: DataTypes.BOOLEAN
   }, {
     sequelize,
     modelName: 'users',

@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
       aplicatio_jobs.belongsTo(models.companies, { foreignKey: 'company_id' })
     
 
-      aplicatio_jobs.hasOne(models.interviews, {foreignKey:"interview_id"});
+      aplicatio_jobs.belongsTo(models.interviews, {foreignKey:"interview_id"});
       
     }
   }

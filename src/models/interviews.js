@@ -11,8 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-     
-      // interviews.hasOne(models.aplicatio_jobs, { foreignKey: 'interview_id' })
+      interviews.hasOne(models.aplicatio_jobs, { foreignKey: 'interview_id' });
     }
   }
   interviews.init({

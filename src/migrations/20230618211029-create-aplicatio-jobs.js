@@ -40,10 +40,7 @@ module.exports = {
       interview_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        references: {
-          model: 'interviews',
-          key: 'id'
-        }
+        unique: true
       }
     }, {
       timestamps: false,
