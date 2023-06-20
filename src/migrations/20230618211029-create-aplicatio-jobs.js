@@ -17,25 +17,33 @@ module.exports = {
         type: Sequelize.TEXT,
         allowNull: false
       },
-      dateShare: {
+      date_share: {
         type: Sequelize.DATE,
-        field: "date_share",
         allowNull: false
       },
-      userId: {
-        type: Sequelize.INTEGER,
-        field: "uer_id",
-        allowNull: false
-      },
-      companyId: {
+      uer_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        field: "company_id"
+        references: {
+          model: 'users',
+          key: 'id'
+        }
       },
-      interviewId: {
+      company_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        field: "interview_id"
+        references: {
+          model: 'companies',
+          key: 'id'
+        }
+      },
+      interview_id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'interviews',
+          key: 'id'
+        }
       }
     }, {
       timestamps: false,
@@ -45,3 +53,6 @@ module.exports = {
     await queryInterface.dropTable('aplicatio_jobs');
   }
 };
+
+
+// npx sequelize-cli db:migrate --to 20230618211605-create-interview.js

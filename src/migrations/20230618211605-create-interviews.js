@@ -2,32 +2,31 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('interview', {
+    await queryInterface.createTable('interviews', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      dateInterview: {
+      date_interview: {
         type: Sequelize.DATE,
         allowNull: false,
-        field: "date_interview"
+       
       },
-      confirInterview: {
+      confir_interview: {
         type: Sequelize.BOOLEAN,
         defaultValue: false,
-        field: "confir_interview"
+        
       },
-      timeInterview: {
+      time_interview: {
         type: Sequelize.TIME,
-        field: "time_interview"
       }
     }, {
       timestamps: false,
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('interview');
+    await queryInterface.dropTable('interviews');
   }
 };

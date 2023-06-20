@@ -27,9 +27,8 @@ module.exports = {
       avatar: {
         type: Sequelize.STRING
       },
-      urlAvatar: {
-        type: Sequelize.TEXT,
-        field: "url_avatar"
+      url_avatar: {
+        type: Sequelize.TEXT
       },
       validate: {
         type: Sequelize.BOOLEAN
