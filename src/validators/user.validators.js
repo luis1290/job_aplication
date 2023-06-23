@@ -51,3 +51,5 @@ const loginUserValidator = [
 
 // object.hasOwnProperty('propertyName')
 module.exports = { createUserValidator, loginUserValidator };
+
+//npx sequelize-cli db:migrate --to XXXXXXXXXXXXXX-create-posts.js

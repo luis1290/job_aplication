@@ -49,3 +49,5 @@ module.exports = {
     await queryInterface.dropTable('users');
   }
 };
+
+//npx sequelize db:migrate --name 20230618211029-create-aplicatio-jobs.js

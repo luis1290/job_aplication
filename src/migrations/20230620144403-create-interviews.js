@@ -7,11 +7,7 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER,
-        references:{
-          model:'aplicatio_jobs',
-          key:'interview_id'
-        }
+        type: Sequelize.INTEGER
       },
       date_interview: {
         type: Sequelize.DATE
