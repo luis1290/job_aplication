@@ -39,14 +39,19 @@ module.exports = {
       },
       interview_id: {
         type: Sequelize.INTEGER,
-        allowNull: false,
         references: {
           model: 'interviews',
           key: 'id'
         }
+      },
+      createdAt: {
+        allowNull: false,
+        type: Sequelize.DATE,
+      },
+      updatedAt: {
+        allowNull: false,
+        type: Sequelize.DATE,
       }
-    }, {
-      timestamps: false,
     });
   },
   async down(queryInterface, Sequelize) {
