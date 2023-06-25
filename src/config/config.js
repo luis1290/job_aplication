@@ -24,4 +24,4 @@ module.exports = {
   }
 }
 
-//npx sequelize-cli model:generate --name interviews --attributes date_interview:date,confir_interview:boolean,time_interview:time
+//npx sequelize-cli model:generate --name recruiter --attributes name:string,linkelin:text,email:string,compani_id:integer
