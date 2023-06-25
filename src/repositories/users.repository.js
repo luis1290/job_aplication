@@ -1,4 +1,4 @@
-const { users } = require('../models');
+const { users, aplicatio_jobs } = require('../models');
 
 const createUser = async (newUser) => {
   const user = await users.create(newUser);
@@ -12,58 +12,32 @@ const loginUser = async (email) => {
   return user;
 }
 
-const updateUser = async (filename, username, id) => {
+const updateUser = async (name, id) => {
   const user = await users.update({
-    username: username,
-    avatar: filename
+    name: name
   }, {
     where: { id }
   })
   return user;
 }
 
-const getUserbyIdAndProductsInCar = async (id) => {
-  const user = await users.findByPk(id, {
-    attributes: { exclude: ["password", "validUser", "avatar", "firstname", "lastname"] },
-    include: [
-      {
-        model: Cars,
-        attributes: ["id", "totalPrice"],
-        include: [
-          {
-            model: ProductsInCar,
-            where: { status: false },
-            attributes: ["quantity", "price", "status"],
-            include: [
-              {
-                model: Products,
-                attributes: { exclude: ["available", "userId"] }
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  });
-  return user;
-}
 
-const getOrdersByUserId = async (id) => {
-  const user = await Users.findByPk(id, {
-    attributes: { exclude: ["password", "validUser", "firstname", "lastname", "id", "avatar"] },
+const getAplicationByUserId = async (id) => {
+  const user = await users.findByPk(id, {
+    attributes: { exclude: ["password", "avatar", "url_avatar", "validate_user", "createdAt", "updatedAt"] },
     include: [
       {
-        model: Orders
+        model: aplicatio_jobs,
+        attributes: { exclude: ["createdAt", "updatedAt"] }
       }
     ]
   })
-  return user;
+  return user
 }
 
 module.exports = {
   createUser,
   loginUser,
   updateUser,
-  getUserbyIdAndProductsInCar,
-  getOrdersByUserId
+  getAplicationByUserId
 }

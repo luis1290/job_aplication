@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      recruiter.belongsTo(models.companies, { foreignKey: 'compani_id' })
     }
   }
   recruiter.init({

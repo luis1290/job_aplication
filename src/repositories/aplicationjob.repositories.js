@@ -5,6 +5,8 @@ const createAplication = async (dataAplication) => {
   return aplication;
 }
 
-module.exports ={
+
+
+module.exports = {
   createAplication
 }
