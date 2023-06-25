@@ -24,4 +24,4 @@ module.exports = {
   }
 }
 
-//npx sequelize-cli model:generate --name recruiters --attributes name:string,linkelin:text,email:string
+//npx sequelize-cli model:generate --name recruiter --attributes name:string,linkelin:text,email:string,compani_id:integer
