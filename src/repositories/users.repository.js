@@ -1,4 +1,4 @@
-const { users, aplicatio_jobs } = require('../models');
+const { users, aplicatio_jobs, interviews, companies } = require('../models');
 
 const createUser = async (newUser) => {
   const user = await users.create(newUser);
@@ -28,10 +28,29 @@ const getAplicationByUserId = async (id) => {
     include: [
       {
         model: aplicatio_jobs,
-        attributes: { exclude: ["createdAt", "updatedAt"] }
+        attributes: { exclude: ["createdAt", "updatedAt","company_id"] },
+        include:[
+          {
+            model: companies,
+            attributes: { exclude: ["createdAt", "updatedAt"] },
+          }
+        ]
       }
     ]
   })
+  return user
+}
+
+const getInterviewByUserId = async (id) =>{
+  const user = await users.findByPk(id,{
+    attributes: { exclude: ["password", "avatar", "url_avatar", "validate_user", "createdAt", "updatedAt"] },
+    include :[
+      {
+        model: interviews
+      }
+    ]
+  })
+
   return user
 }
 
@@ -39,5 +58,6 @@ module.exports = {
   createUser,
   loginUser,
   updateUser,
-  getAplicationByUserId
+  getAplicationByUserId,
+  getInterviewByUserId
 }

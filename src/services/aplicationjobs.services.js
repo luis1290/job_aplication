@@ -1,4 +1,4 @@
-const { createAplication } = require("../repositories/aplicationjob.repositories")
+const { createAplication, addInterviewAplication } = require("../repositories/aplicationjob.repositories")
 
 class aplicationJobsServices {
 
@@ -9,6 +9,17 @@ class aplicationJobsServices {
     } catch (error) {
       throw error
     }
+  }
+
+  static async addInterviewAplicationServices(interview_id, id) {
+    try {
+      console.log('entra al servicio')
+      const aplication = await addInterviewAplication(interview_id, id)
+      return aplication;
+    } catch (error) {
+      throw error
+    }
+
   }
 
 }

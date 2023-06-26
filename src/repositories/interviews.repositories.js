@@ -1,10 +1,14 @@
-const { recruiter } = require('../models');
+const { interviews } = require('../models');
 
-const createRecruiter = async (dataRecruiter) => {
-  const company = await recruiter.create(dataRecruiter);
+const createInterview = async (dataInterview) => {
+  const company = await interviews.create(dataInterview);
   return company;
 }
 
-module.exports ={
-  createRecruiter
+
+
+
+
+module.exports = {
+  createInterview
 }
