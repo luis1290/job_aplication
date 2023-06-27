@@ -12,7 +12,8 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       aplicatio_jobs.belongsTo(models.users, { foreignKey: 'uer_id' })
-      aplicatio_jobs.belongsTo(models.companies, { foreignKey: 'company_id' })   
+      aplicatio_jobs.belongsTo(models.companies, { foreignKey: 'company_id' })
+      aplicatio_jobs.hasMany(models.interviews, { foreignKey: 'aplication_job_id' })
     }
   }
   aplicatio_jobs.init({
@@ -20,8 +21,7 @@ module.exports = (sequelize, DataTypes) => {
     description: DataTypes.TEXT,
     date_share: DataTypes.DATE,
     uer_id: DataTypes.INTEGER,
-    company_id: DataTypes.INTEGER,
-    interview_id: DataTypes.INTEGER
+    company_id: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'aplicatio_jobs',

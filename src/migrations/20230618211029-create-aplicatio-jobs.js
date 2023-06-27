@@ -18,7 +18,7 @@ module.exports = {
         allowNull: false
       },
       date_share: {
-        type: Sequelize.DATE,
+        type: Sequelize.DATEONLY,
         allowNull: false
       },
       uer_id: {
@@ -34,13 +34,6 @@ module.exports = {
         allowNull: false,
         references: {
           model: 'companies',
-          key: 'id'
-        }
-      },
-      interview_id: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'interviews',
           key: 'id'
         }
       },

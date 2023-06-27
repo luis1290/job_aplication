@@ -11,13 +11,14 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      interviews.hasOne(models.aplicatio_jobs, { foreignKey: 'interview_id' });
+      interviews.belongsTo(models.aplicatio_jobs, { foreignKey: 'aplication_job_id' });
     }
   }
   interviews.init({
     date_interview: DataTypes.DATE,
     confir_interview: DataTypes.BOOLEAN,
-    time_interview: DataTypes.TIME
+    time_interview: DataTypes.TIME,
+    aplication_job_id: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'interviews',

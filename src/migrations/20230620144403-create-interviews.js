@@ -19,6 +19,13 @@ module.exports = {
       time_interview: {
         type: Sequelize.TIME
       },
+      aplication_job_id:{
+        type: Sequelize.INTEGER,
+        references:{
+          model:'aplicatio_jobs',
+          key:'id'
+        }
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

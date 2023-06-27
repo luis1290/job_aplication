@@ -11,16 +11,7 @@ class aplicationJobsServices {
     }
   }
 
-  static async addInterviewAplicationServices(interview_id, id) {
-    try {
-      console.log('entra al servicio')
-      const aplication = await addInterviewAplication(interview_id, id)
-      return aplication;
-    } catch (error) {
-      throw error
-    }
-
-  }
+  
 
 }
 module.exports = aplicationJobsServices

@@ -10,6 +10,19 @@ const createInterviewController = async (req, res, next) => {
   }
 };
 
+const addInterviewAplicationController = async (req, res, next) => {
+  try {
+    const { id } = req.params
+    const {aplication_job_id} = req.body
+    
+    await InterviewServices.addInterviewAplicationServices(aplication_job_id, id)
+    res.status(201).send()
+  } catch (error) {
+    next(error)
+  }
+};
+
 module.exports = {
-  createInterviewController
+  createInterviewController,
+  addInterviewAplicationController
 }

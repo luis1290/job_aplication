@@ -1,4 +1,5 @@
-const { createInterview } = require("../repositories/interviews.repositories")
+
+const { createInterview, addInterviewAplication } = require("../repositories/interviews.repositories")
 
 class InterviewServices {
 
@@ -8,6 +9,16 @@ class InterviewServices {
     } catch (error) {
       throw error
     }
+  }
+
+  static async addInterviewAplicationServices(aplication_job_id, id) {
+    try {
+      const aplication = await addInterviewAplication(aplication_job_id, id)
+      return aplication;
+    } catch (error) {
+      throw error
+    }
+
   }
 
 }

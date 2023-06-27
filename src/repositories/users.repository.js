@@ -28,11 +28,15 @@ const getAplicationByUserId = async (id) => {
     include: [
       {
         model: aplicatio_jobs,
-        attributes: { exclude: ["createdAt", "updatedAt","company_id"] },
-        include:[
+        attributes: { exclude: ["createdAt", "updatedAt", "company_id"] },
+        include: [
           {
             model: companies,
             attributes: { exclude: ["createdAt", "updatedAt"] },
+          },
+          {
+            model: interviews,
+            attributes: { exclude: ["createdAt", "updatedAt", "aplication_job_id"] },
           }
         ]
       }
@@ -41,10 +45,10 @@ const getAplicationByUserId = async (id) => {
   return user
 }
 
-const getInterviewByUserId = async (id) =>{
-  const user = await users.findByPk(id,{
+const getInterviewByUserId = async (id) => {
+  const user = await users.findByPk(id, {
     attributes: { exclude: ["password", "avatar", "url_avatar", "validate_user", "createdAt", "updatedAt"] },
-    include :[
+    include: [
       {
         model: interviews
       }

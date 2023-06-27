@@ -5,10 +5,21 @@ const createInterview = async (dataInterview) => {
   return company;
 }
 
+const addInterviewAplication = async (aplication_job_id, id) => {
+  console.log('entra al repository')
+  const aplication = await interviews.update({ aplication_job_id: aplication_job_id }, {
+    where: {
+      id
+    }
+  })
+  return aplication
+}
+
 
 
 
 
 module.exports = {
-  createInterview
+  createInterview,
+  addInterviewAplication
 }
