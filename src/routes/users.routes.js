@@ -8,7 +8,7 @@ const {
 
 const upload = require("../middlewares/multer.middleware");
 const authenticate = require("../middlewares/auth.middleware");
-const { createUserController, login, getAplicationByUserController } = require("../controllers/users.controllers");
+const { createUserController, login, getAplicationByUserController, updateUserController } = require("../controllers/users.controllers");
 
 
 
@@ -18,9 +18,9 @@ router.post("/users", createUserValidator, createUserController);
 
 router.post("/users/login", loginUserValidator, login);
 
- router.get("/users/:id", getAplicationByUserController);
+router.get("/users/:id", getAplicationByUserController);
 
-// router.put("/users/:id", authenticate, upload, updateUserController );
+router.put("/editusers/:id", updateUserController);
 
 
 

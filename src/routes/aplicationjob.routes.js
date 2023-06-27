@@ -1,9 +1,11 @@
 const { Router } = require('express');
-const { aplicationJobController } = require('../controllers/aplicationjobs.controlles');
+const { createAplicationJobController, updateAplicatioJobController, deleteAplicationJobController } = require('../controllers/aplicationjobs.controlles');
 
 const router = Router();
 
-router.post("/aplicationjob", aplicationJobController);
+router.post("/aplicationjob", createAplicationJobController);
+router.put("/editaplicationjob", updateAplicatioJobController);
+router.delete("/deleteaplicationjob", deleteAplicationJobController);
 
 
 

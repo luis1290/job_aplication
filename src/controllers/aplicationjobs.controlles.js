@@ -1,7 +1,7 @@
 const aplicationJobsServices = require("../services/aplicationjobs.services");
 
 
-const aplicationJobController = async (req, res, next) => {
+const createAplicationJobController = async (req, res, next) => {
   try {
     const dataAplication = req.body
     await aplicationJobsServices.createAplicationServices(dataAplication)
@@ -11,8 +11,30 @@ const aplicationJobController = async (req, res, next) => {
   }
 };
 
+const updateAplicatioJobController = async (req, res, next) => {
+  try {
+    const { id } = req.params
+    const dataAplication = req.body
+    await aplicationJobsServices.updateAplicationServices(dataAplication, id)
+    res.status(201).send()
+  } catch (error) {
+    next(error)
+  }
+};
+
+const deleteAplicationJobController = async (req, res, next) => {
+  try {
+    const { id } = req.body
+    await aplicationJobsServices.deleteAplicationServices(id)
+    res.status(201).send()
+  } catch (error) {
+    next(error)
+  }
+};
 
 
 module.exports = {
-  aplicationJobController
+  createAplicationJobController,
+  updateAplicatioJobController,
+  deleteAplicationJobController
 }

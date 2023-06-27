@@ -27,19 +27,31 @@ const login = async (req, res, next) => {
   }
 };
 
-const getAplicationByUserController = async(req, res, next) => {
+const getAplicationByUserController = async (req, res, next) => {
   try {
-    const {id} = req.params
+    const { id } = req.params
     console.log('entra al controlador')
     const userAplication = await UserServices.getAplicationByUserServices(id)
     res.json(userAplication);
   } catch (error) {
-     next(error)
+    next(error)
+  }
+};
+
+const updateUserController = async (req, res, next) => {
+  try {
+    const { id } = req.params
+    const name = req.body
+    await UserServices.updateUserServices(name, id)
+    res.status(201).send()
+  } catch (error) {
+    next(error)
   }
 };
 
 module.exports = {
   createUserController,
   getAplicationByUserController,
+  updateUserController,
   login
 }
