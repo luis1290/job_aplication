@@ -35,6 +35,19 @@ const createUserValidator = [
   validateResult,
 ];
 
+const updateUserValidator = [
+  check("name", "Error con el campo username")
+    .exists()
+    .withMessage("Username es obligatorio")
+    .notEmpty()
+    .withMessage("Username no debe estar vacio")
+    .isString()
+    .withMessage("El tipo de dato debe ser string")
+    .isLength({ min: 6, max: 30 })
+    .withMessage("El username debe tener minimo 6 caracteres y máximo 30"),
+  validateResult
+]
+
 const loginUserValidator = [
   check("email", "Error con el campo email")
     .exists()
@@ -50,6 +63,6 @@ const loginUserValidator = [
 ];
 
 // object.hasOwnProperty('propertyName')
-module.exports = { createUserValidator, loginUserValidator };
+module.exports = { createUserValidator, loginUserValidator, updateUserValidator };
 
 //npx sequelize-cli db:migrate --to XXXXXXXXXXXXXX-create-posts.js

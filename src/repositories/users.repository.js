@@ -12,9 +12,11 @@ const loginUser = async (email) => {
   return user;
 }
 
-const updateUser = async (name, id) => {
+const updateUser = async (dataUser, id) => {
   const user = await users.update({
-    name: name
+    name: dataUser.name,
+    url_avatar: dataUser.url_avatar,
+    avatar: dataUser.avatar
   }, {
     where: { id }
   })

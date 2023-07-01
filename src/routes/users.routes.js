@@ -4,6 +4,7 @@ const { Router } = require("express");
 const {
   createUserValidator,
   loginUserValidator,
+  updateUserValidator,
 } = require("../validators/user.validators");
 
 const upload = require("../middlewares/multer.middleware");
@@ -20,7 +21,7 @@ router.post("/users/login", loginUserValidator, login);
 
 router.get("/users/:id", getAplicationByUserController);
 
-router.put("/editusers/:id", updateUserController);
+router.put("/editusers/:id", upload, updateUserController);
 
 
 

@@ -1,5 +1,5 @@
 
-const { createInterview, addInterviewAplication, updateInterview, deleteInterview } = require("../repositories/interviews.repositories")
+const { createInterview, addInterviewAplication, updateInterview, deleteInterview, confirmInterview } = require("../repositories/interviews.repositories")
 
 class InterviewServices {
 
@@ -31,6 +31,13 @@ class InterviewServices {
   static async deleteInterviewServices(id) {
     try {
       return await deleteInterview(id)
+    } catch (error) {
+      throw error
+    }
+  }
+  static async confirmInterviewServices(dataIntervies, id) {
+    try {
+      return await confirmInterview(dataIntervies, id)
     } catch (error) {
       throw error
     }

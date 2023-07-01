@@ -6,7 +6,7 @@ const createCompani = async (dataCompany) => {
 }
 
 const updateCompany = async (dataCompany, id) => {
-  const company = await companies.update({ dataCompany }, {
+  const company = await companies.update( dataCompany , {
     where: { id }
   })
   return company

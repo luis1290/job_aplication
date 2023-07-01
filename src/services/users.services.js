@@ -104,9 +104,9 @@ class UserServices {
       throw error
     }
   }
-  static async updateUserServices(name, id) {
+  static async updateUserServices(dataUser, id) {
     try {
-      return await updateUser(name, id)
+      return await updateUser(dataUser, id)
     } catch (error) {
       throw error
     }

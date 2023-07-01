@@ -7,6 +7,7 @@ router.post("/addrecruiter", createRecruiterController);
 
 router.put("/editrecruiter/:id", updateRecruiterController);
 
+
 router.delete("/deliterecruiter/:id", deleteRecruiterController);
 
 module.exports = router;

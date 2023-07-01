@@ -35,8 +35,19 @@ const updateInterviewsController = async (req, res, next) => {
 
 const deleteInterviewsController = async (req, res, next) => {
   try {
-    const {id} = req.params
+    const { id } = req.params
     await InterviewServices.deleteInterviewServices(id)
+    res.status(201).send()
+  } catch (error) {
+    next(error)
+  }
+};
+
+const confirmInterviewController = async (req, res, next) => {
+  try {
+    const { id } = req.params
+    const dataIntervies = req.body
+    await InterviewServices.confirmInterviewServices(dataIntervies, id)
     res.status(201).send()
   } catch (error) {
     next(error)
@@ -47,5 +58,6 @@ module.exports = {
   createInterviewController,
   addInterviewAplicationController,
   updateInterviewsController,
-  deleteInterviewsController
+  deleteInterviewsController,
+  confirmInterviewController
 }

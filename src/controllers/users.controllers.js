@@ -41,8 +41,11 @@ const getAplicationByUserController = async (req, res, next) => {
 const updateUserController = async (req, res, next) => {
   try {
     const { id } = req.params
-    const name = req.body
-    await UserServices.updateUserServices(name, id)
+    const { path } = req.file
+    const { filename } = req.file
+    
+    const { name } = req.body
+    await UserServices.updateUserServices({ name, url_avatar: path, avatar: filename }, id)
     res.status(201).send()
   } catch (error) {
     next(error)
