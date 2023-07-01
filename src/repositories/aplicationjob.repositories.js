@@ -6,7 +6,7 @@ const createAplication = async (dataAplication) => {
 }
 
 const updateAplication = async (dataAplication, id) => {
-  const aplication = await aplicatio_jobs.update({ dataAplication },
+  const aplication = await aplicatio_jobs.update(dataAplication ,
     {
       where: { id }
     })

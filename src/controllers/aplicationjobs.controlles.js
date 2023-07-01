@@ -24,7 +24,7 @@ const updateAplicatioJobController = async (req, res, next) => {
 
 const deleteAplicationJobController = async (req, res, next) => {
   try {
-    const { id } = req.body
+    const { id } = req.params
     await aplicationJobsServices.deleteAplicationServices(id)
     res.status(201).send()
   } catch (error) {

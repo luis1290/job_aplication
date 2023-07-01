@@ -5,7 +5,7 @@ const router = Router();
 
 router.post("/companies", createCompanyController);
 router.put("/editcompanies", updateCompanyController);
-router.delete("/delitecompanies", deleteCompanyController);
+router.delete("/delitecompanies/:id", deleteCompanyController);
 router.get("/getcompanies/:id", getCompanyRecluiterController);
 
 module.exports = router;

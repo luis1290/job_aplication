@@ -4,8 +4,8 @@ const { createAplicationJobController, updateAplicatioJobController, deleteAplic
 const router = Router();
 
 router.post("/aplicationjob", createAplicationJobController);
-router.put("/editaplicationjob", updateAplicatioJobController);
-router.delete("/deleteaplicationjob", deleteAplicationJobController);
+router.put("/editaplicationjob/:id", updateAplicatioJobController);
+router.delete("/deleteaplicationjob/:id", deleteAplicationJobController);
 
 
 

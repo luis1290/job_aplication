@@ -15,11 +15,28 @@ const addInterviewAplication = async (aplication_job_id, id) => {
   return aplication
 }
 
+const updateInterview = async (dataInterview, id) => {
+  const interview = await interviews.update({ dataInterview }, {
+    where: { id }
+  })
+  return interview
+}
+
+const deleteInterview = async (id) => {
+  const interview = await interviews.destroy({
+    where: { id }
+  })
+  return interview
+}
+
+
 
 
 
 
 module.exports = {
   createInterview,
-  addInterviewAplication
+  addInterviewAplication,
+  updateInterview,
+  deleteInterview
 }

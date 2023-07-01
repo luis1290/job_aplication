@@ -23,7 +23,7 @@ const updateCompanyController = async (req, res, next) => {
 
 const deleteCompanyController = async (req, res, next) => {
   try {
-    const id = req.body
+    const { id } = req.params
     await companiesServices.deleteCompanyServices(id)
     res.status(201).send()
   } catch (error) {
