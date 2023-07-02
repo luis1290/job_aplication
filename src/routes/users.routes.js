@@ -19,9 +19,9 @@ router.post("/users", createUserValidator, createUserController);
 
 router.post("/users/login", loginUserValidator, login);
 
-router.get("/users/:id", getAplicationByUserController);
+router.get("/users/:id", authenticate, getAplicationByUserController);
 
-router.put("/editusers/:id", upload, updateUserController);
+router.put("/editusers/:id", upload, authenticate, updateUserController);
 
 
 
