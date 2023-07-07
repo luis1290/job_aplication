@@ -6,7 +6,7 @@ const createCompani = async (dataCompany) => {
 }
 
 const updateCompany = async (dataCompany, id) => {
-  const company = await companies.update( dataCompany , {
+  const company = await companies.update(dataCompany, {
     where: { id }
   })
   return company
@@ -32,9 +32,17 @@ const getCompanyRecruiter = async (id) => {
   return company
 }
 
+const getAllCompany = async () => {
+  const company = await companies.findAll({
+    attributes: { exclude: ["createdAt", "updatedAt"] },
+  })
+  return company
+}
+
 module.exports = {
   createCompani,
   updateCompany,
   deleteCompany,
-  getCompanyRecruiter
+  getCompanyRecruiter,
+  getAllCompany
 }

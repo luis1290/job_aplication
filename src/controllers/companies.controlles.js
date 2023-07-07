@@ -41,9 +41,19 @@ const getCompanyRecluiterController = async (req, res, next) => {
   }
 };
 
+const getAllComaniesController = async (req, res, next) => {
+  try {
+    const company = await companiesServices.getAllComaniesServices()
+    res.json(company);
+  } catch (error) {
+    next(error)
+  }
+};
+
 module.exports = {
   createCompanyController,
   updateCompanyController,
   deleteCompanyController,
-  getCompanyRecluiterController
+  getCompanyRecluiterController,
+  getAllComaniesController
 }

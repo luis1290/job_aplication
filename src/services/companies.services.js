@@ -1,4 +1,4 @@
-const { createCompani, updateCompany, deleteCompany, getCompanyRecruiter } = require("../repositories/companies.repository");
+const { createCompani, updateCompany, deleteCompany, getCompanyRecruiter, getAllCompany } = require("../repositories/companies.repository");
 
 class companiesServices {
 
@@ -27,6 +27,13 @@ class companiesServices {
   static async getCompanyRecluiterServices(id) {
     try {
       return await getCompanyRecruiter(id)
+    } catch (error) {
+      throw error
+    }
+  }
+  static async  getAllComaniesServices() {
+    try {
+      return await getAllCompany();
     } catch (error) {
       throw error
     }
