@@ -36,15 +36,15 @@ const createUserValidator = [
 ];
 
 const updateUserValidator = [
-  check("name", "Error con el campo username")
+  check("name", "Error con el campo name")
     .exists()
-    .withMessage("Username es obligatorio")
+    .withMessage("name es obligatorio")
     .notEmpty()
-    .withMessage("Username no debe estar vacio")
+    .withMessage("name no debe estar vacio")
     .isString()
     .withMessage("El tipo de dato debe ser string")
     .isLength({ min: 6, max: 30 })
-    .withMessage("El username debe tener minimo 6 caracteres y máximo 30"),
+    .withMessage("El name debe tener minimo 6 caracteres y máximo 30"),
   validateResult
 ]
 
