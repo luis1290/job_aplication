@@ -26,7 +26,7 @@ const updateUser = async (dataUser, id) => {
 
 const getAplicationByUserId = async (id) => {
   const user = await users.findByPk(id, {
-    attributes: { exclude: ["password", "avatar", "url_avatar", "validate_user", "createdAt", "updatedAt"] },
+    attributes: { exclude: ["password", "avatar",  "validate_user", "createdAt", "updatedAt"] },
     include: [
       {
         model: aplicatio_jobs,
