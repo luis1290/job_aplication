@@ -24,9 +24,19 @@ const updateRecruiterController = async (req, res, next) => {
 
 const deleteRecruiterController = async (req, res, next) => {
   try {
-    const {id} = req.params
+    const { id } = req.params
     await recruiterServices.deleteRecruiterServices(id)
     res.status(201).send()
+  } catch (error) {
+    next(error)
+  }
+};
+
+
+const getAllRecluiterController = async (req, res, next) => {
+  try {
+    const recluter = await recruiterServices.getAllRecluiterServices()
+    res.json(recluter);
   } catch (error) {
     next(error)
   }
@@ -35,5 +45,6 @@ const deleteRecruiterController = async (req, res, next) => {
 module.exports = {
   createRecruiterController,
   updateRecruiterController,
-  deleteRecruiterController
+  deleteRecruiterController,
+  getAllRecluiterController
 }

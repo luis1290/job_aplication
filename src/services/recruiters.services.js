@@ -1,4 +1,4 @@
-const { createRecruiter, updateRecruiter, deleteRecruiter } = require("../repositories/recruiter.repositories")
+const { createRecruiter, updateRecruiter, deleteRecruiter, getRecluters } = require("../repositories/recruiter.repositories")
 
 class recruiterServices {
   static async createRecruiterServices(dataRecruiter) {
@@ -20,6 +20,13 @@ class recruiterServices {
   static async deleteRecruiterServices(id) {
     try {
       return await deleteRecruiter(id)
+    } catch (error) {
+      throw error
+    }
+  }
+  static async getAllRecluiterServices() {
+    try {
+      return await getRecluters();
     } catch (error) {
       throw error
     }

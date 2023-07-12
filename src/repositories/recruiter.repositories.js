@@ -1,4 +1,4 @@
-const { recruiter } = require('../models');
+const { recruiter, companies } = require('../models');
 
 const createRecruiter = async (dataRecruiter) => {
   const recruite = await recruiter.create(dataRecruiter);
@@ -19,9 +19,25 @@ const deleteRecruiter = async (id) => {
   return recruite
 }
 
+const getRecluters = async () => {
+  const user = await recruiter.findAll({
+    attributes: { exclude: ["createdAt", "updatedAt"] },
+    include: [
+      {
+        model: companies,
+        attributes: { exclude: ["createdAt", "updatedAt"] },
+      }
+    ]
+  })
+
+  return user
+}
+
+
 
 module.exports = {
   createRecruiter,
   updateRecruiter,
-  deleteRecruiter
+  deleteRecruiter,
+  getRecluters
 }
