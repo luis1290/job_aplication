@@ -27,7 +27,7 @@ class UserServices {
     }
   }
 
-  static async verifyUser(user) {
+  static async verifyUser(user, next) {
     if (!user) {
       return next({
         status: 400,
