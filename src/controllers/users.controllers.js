@@ -43,9 +43,19 @@ const updateUserController = async (req, res, next) => {
     const { id } = req.params
     const { path } = req.file
     const { filename } = req.file
-    
+
     const { name } = req.body
     await UserServices.updateUserServices({ name, url_avatar: path, avatar: filename }, id)
+    res.status(201).send()
+  } catch (error) {
+    next(error)
+  }
+};
+
+const validateUserController = async (req, res, next) => {
+  try {
+    const { id } = req.params
+    await UserServices.validateUserServices(id)
     res.status(201).send()
   } catch (error) {
     next(error)
@@ -56,5 +66,6 @@ module.exports = {
   createUserController,
   getAplicationByUserController,
   updateUserController,
-  login
+  login,
+  validateUserController
 }
