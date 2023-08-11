@@ -18,14 +18,14 @@ const sendMail = (email, doc, attachments) => {
 };
 
 const sendWelcomeMail = async (email, data) => {
-  const filePath = path.join(__dirname, "../views/mails/Confirmacion/confirmacion.ejs");
+  const filePath = path.join(__dirname, "../views/mails/Confirmation/confirmacion.ejs");
   const doc = await ejs.renderFile(filePath, data);
   console.log(data)
 
   const attachments = [
     {
       filename: "onde.png",
-      path: path.join(__dirname, "../views/mails/Confirmacion/onde.png"),
+      path: path.join(__dirname, "../views/mails/Confirmation/onde.png"),
       cid: "onde",
     }
   ];

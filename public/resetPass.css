@@ -1,0 +1,58 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(1, 400px);
+  justify-content: center;
+  align-items: center;
+  padding: 200px;
+  background-image: url("/paisley.webp");
+}
+
+.resetPass {
+  border: 1px solid black;
+  border-radius: 15px;
+  padding: 15px;
+  display: grid;
+  gap: 0.5rem;
+  
+  justify-content: center;
+  align-items: center;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.btn {
+  width: 200px;
+  border-radius: 10px;
+  padding: 10px;
+  border: none;
+  background-color: #e21079;
+  color: aliceblue;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 1s all ease;
+}
+
+.btn:hover {
+  background-color: #970f4e;
+}
+
+.passInput {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+
+
+.destacado {
+  font-family: 'Carter One', cursive;
+  font-weight: bold;
+  font-size: 20px;
+}

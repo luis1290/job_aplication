@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="public/validarUser.css">
+    <link rel="shortcut icon" href="/spaguetti.png" type="image/x-icon">
+</head>
+<body>
+    <h1>¡Solo un paso más!</h1>
+    <button class="btn" id="btn">Activar Cuenta</button>
+    <img src="/spaguetti.png" alt="Imagen de pasta" width="100">
+    <script>
+    const btn = document.getElementById("btn");
+
+    function getParameterValue(parameter) {
+      const url = new URL(window.location.href);
+      return url.searchParams.get(parameter);
+    }
+
+   
+
+    const token = getParameterValue('token');
+
+    const verifyEmail = () => {
+        axios.post(`http://localhost:8000/validateuser/${token}`)
+            .then(()=>alert("Registrado"))
+            .catch(e=> console.log(e))
+    }
+    btn.addEventListener("click", verifyEmail);
+    </script>
+</body>
+</html>

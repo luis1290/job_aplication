@@ -24,7 +24,7 @@ router.get("/users/:id", authenticate, getAplicationByUserController);
 
 router.put("/editusers/:id", upload, validateImage, updateUserValidator, authenticate, updateUserController);
 
-router.put("/validateuser/:id",validateUserController );
+router.post("/validateuser/:token", validateUserController);
 
 
 

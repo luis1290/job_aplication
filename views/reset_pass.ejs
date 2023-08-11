@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restablecer contraseña</title>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="/resetPass.css">
+  <link rel="shortcut icon" href="/spaguetti.png" type="image/x-icon">
+</head>
+
+<body>
+  <div class="resetPass">
+    <label class="destacado" for="fname">Nueva Contraseña:</label><br>
+    <input class="passInput" type="password" id="newPass" name="newPass"><br>
+
+    <label class="destacado"  for="fname">Confirmar Nueva Contraseña:</label><br>
+    <input class="passInput" type="password" id="confirmPass" name="confirmPass"><br>
+
+    <button class="btn" id="btn">Restablecer contraseña</button>
+  </div>
+
+  <script src="/resetPass.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+
+</html>

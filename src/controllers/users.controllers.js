@@ -1,4 +1,7 @@
 const UserServices = require("../services/users.services");
+const { sendWelcomeMail } = require("../utils/sendMails");
+const { users } = require('../models');
+const jwt = require("jsonwebtoken");
 
 const createUserController = async (req, res, next) => {
   try {
@@ -6,6 +9,11 @@ const createUserController = async (req, res, next) => {
     const hash = await UserServices.hashed(password)
     await UserServices.createNewUser({ name, email, password: hash });
     res.status(201).send()
+    const verifyToken = jwt.sign({ name, email }, process.env.JWT_SECRET_EMAIL_VALIDATION, {
+      algorithm: "HS512",
+      expiresIn: "12h",
+    });
+    sendWelcomeMail(email, { verifyToken });
   } catch (e) {
     next(e)
   }
@@ -54,8 +62,24 @@ const updateUserController = async (req, res, next) => {
 
 const validateUserController = async (req, res, next) => {
   try {
-    const { id } = req.params
-    await UserServices.validateUserServices(id)
+    const { token } = req.params;
+    const decode = jwt.verify(token, process.env.JWT_SECRET_EMAIL_VALIDATION, {
+      algorithms: "HS512",
+    })
+
+    if (!decode) {
+      next({
+        status: 400,
+        name: "error de verificacion",
+        message: "verificacion incorrecta, solicite informacion "
+      })
+    }
+    await users.update({
+      validate_user: true
+    }, {
+      where: { email: decode.email }
+    })
+    // await UserServices.validateUserServices(id)
     res.status(201).send()
   } catch (error) {
     next(error)

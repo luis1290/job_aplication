@@ -5,15 +5,16 @@ const errorRoutes = require('./routes/errors.routes');
 
 const PORT = process.env.PORT || 8000;
 
-const app = express();
 
+const app = express();
+app.set("view engine", "ejs");
 
 app.use(cors())
 
 app.use(express.json());
 
 app.get('/', (req, res) => {
-  res.send('Welcome')
+  res.render("index")
 })
 
 apiRoutes(app);
