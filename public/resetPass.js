@@ -16,7 +16,7 @@ const verifyEmail = () => {
       password: password1
     };
 
-    axios.put(`http://localhost:3000/resetpassword/`, data)
+    axios.put(`http://localhost:8000/resetpassword/`, data)
       .then((resp) => {
         Swal.fire('Restablecimiento de contraseña exitoso')
         console.log(resp);

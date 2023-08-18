@@ -17,6 +17,10 @@ app.get('/', (req, res) => {
   res.render("index")
 })
 
+app.get("/reset", (req, res)=>{
+  res.render("reset_pass")
+});
+
 apiRoutes(app);
 errorRoutes(app);
 
