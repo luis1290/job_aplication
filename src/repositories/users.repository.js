@@ -69,11 +69,45 @@ const getInterviewByUserId = async (id) => {
   return user
 }
 
+const virifyEmailInBD = async (email) => {
+  const user = await users.findOne({
+    attributes: { exclude: ["createdAt", "updatedAt", "password"] },
+    where: {
+      email
+    }
+  })
+  if (user !== null) {
+    return user
+  } else {
+    return 'email no encontrado'
+  }
+}
+
+const resetPassword = async (resetPass) => {
+  console.log(resetPass)
+  const user = await users.update({
+    password: resetPass.password,
+  }, {
+    where: { id: resetPass.id }
+  })
+  return user;
+}
+
+const getUserById = async (id) => {
+  const user = await users.findByPk(id, {
+    attributes: { exclude: ["createdAt", "updatedAt", "password"] }
+  })
+  return user
+}
+
 module.exports = {
   createUser,
   loginUser,
   updateUser,
   getAplicationByUserId,
   getInterviewByUserId,
-  validateUser
+  validateUser,
+  virifyEmailInBD,
+  resetPassword,
+  getUserById
 }

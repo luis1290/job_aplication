@@ -1,4 +1,4 @@
-const { createUser, loginUser, validateEmail, updateUser, getAplicationByUserId, getInterviewByUserId, validateUser } = require("../repositories/users.repository")
+const { createUser, loginUser, validateEmail, updateUser, getAplicationByUserId, getInterviewByUserId, validateUser, resetPassword, virifyEmailInBD, getUserById } = require("../repositories/users.repository")
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
@@ -118,6 +118,33 @@ class UserServices {
     } catch (error) {
       throw error
     }
+  }
+  static async virifyEmailBdServices(email) {
+    try {
+      const user = await virifyEmailInBD(email)
+      return user;
+    } catch (error) {
+      throw error
+    }
+  }
+
+  static async getUserByIdServices(id) {
+    try {
+      const user = await getUserById(id);
+      return user;
+    } catch (error) {
+      throw error
+    }
+  }
+
+  static async resetPasswordServices(resetPass) {
+    try {
+      const user = await resetPassword(resetPass)
+      return user
+    } catch (error) {
+      throw error
+    }
+
   }
 }
 

@@ -33,8 +33,40 @@ const sendWelcomeMail = async (email, data) => {
   sendMail(email, doc, attachments);
 };
 
+const sendResetMail = async (email, data) => {
+  const filePath = path.join(__dirname, "../views/mails/Confirmacion/resetpass.ejs");
+  const doc = await ejs.renderFile(filePath, data);
+
+  const attachments = [
+    {
+      filename: "onde.png",
+      path: path.join(__dirname, "../views/mails/Confirmacion/onde.png"),
+      cid: "onde",
+    }
+  ];
+
+  sendMail(email, doc, attachments);
+}
+
+const sendChangePassMail = async (email, data) => {
+  const filePath = path.join(__dirname, "../views/mails/Confirmacion/changepass.ejs");
+  const doc = await ejs.renderFile(filePath, data);
+
+  const attachments = [
+    {
+      filename: "onde.png",
+      path: path.join(__dirname, "../views/mails/Confirmacion/onde.png"),
+      cid: "onde",
+    }
+  ];
+
+  sendMail(email, doc, attachments);
+}
+
 
 
 module.exports = {
-  sendWelcomeMail
+  sendWelcomeMail,
+  sendResetMail,
+  sendChangePassMail
 };
