@@ -1,0 +1,1108 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "job aplication",
+    "description": "Documentación sistema Job Aplication",
+    "contact": {},
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8000",
+      "variables": {}
+    }
+  ],
+  "paths": {
+    "/users": {
+      "post": {
+        "tags": [
+          "users"
+        ],
+        "summary": "add users",
+        "description": "agrega usuarios al sistema",
+        "operationId": "addusers",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/addusersrequest"
+                  },
+                  {
+                    "example": {
+                      "name": "dama matarrita",
+                      "email": "dama@gmail.com",
+                      "password": "12345678910"
+                    }
+                  }
+                ]
+              },
+              "example": {
+                "name": "dama matarrita",
+                "email": "dama@gmail.com",
+                "password": "12345678910"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/users/login": {
+      "post": {
+        "tags": [
+          "users"
+        ],
+        "summary": "loguin",
+        "description": "loguin para ingresar al sistema",
+        "operationId": "loguin",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/loguinrequest"
+                  },
+                  {
+                    "example": {
+                      "email": "dama@gmail.com",
+                      "password": "12345678910"
+                    }
+                  }
+                ]
+              },
+              "example": {
+                "email": "dama@gmail.com",
+                "password": "12345678910"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/users/1": {
+      "get": {
+        "tags": [
+          "users"
+        ],
+        "summary": "get aplication by user",
+        "description": "Obtiene las aplicaciones de un usuario",
+        "operationId": "getaplicationbyuser",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/editusers/3": {
+      "put": {
+        "tags": [
+          "users"
+        ],
+        "summary": "edit user",
+        "description": "edita un usuario",
+        "operationId": "edituser",
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "encoding": {},
+              "schema": {
+                "required": [
+                  "name",
+                  "image"
+                ],
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "example": "dama matarrita"
+                  },
+                  "image": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          },
+          "required": false
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/validateuser/eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiTHVpcyBnb21leiIsImVtYWlsIjoibGdvbWV6MTI5MEBnbWFpbC5jb20iLCJpYXQiOjE2OTE3ODQyNDcsImV4cCI6MTY5MTgyNzQ0N30.m_0O9fNSlNYaFT4t-Atj87q3_t4dS6OO7Mkv7k35NCrn3t6gwHDJ87-dRCgkliMwf_MSjZeu_BX9NiA-Hulp0g": {
+      "get": {
+        "tags": [
+          "users"
+        ],
+        "summary": "validateEmail",
+        "operationId": "validateEmail",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/emailreset": {
+      "get": {
+        "tags": [
+          "users"
+        ],
+        "summary": "sendResetEmail",
+        "description": "envia email de confirmación al registrarse",
+        "operationId": "sendResetEmail",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/companies": {
+      "post": {
+        "tags": [
+          "companies"
+        ],
+        "summary": "create company",
+        "description": "Agrega una compañia",
+        "operationId": "createcompany",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/createcompanyrequest"
+                  },
+                  {
+                    "example": {
+                      "name": "Oowlish",
+                      "email": "Oowlish@gmail.com",
+                      "location": "USA, California"
+                    }
+                  }
+                ]
+              },
+              "example": {
+                "name": "Oowlish",
+                "email": "Oowlish@gmail.com",
+                "location": "USA, California"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/getcompanies/1": {
+      "get": {
+        "tags": [
+          "companies"
+        ],
+        "summary": "get compani and recruiters",
+        "description": "Obtiene la compañia y el reclutador de un usuario",
+        "operationId": "getcompaniandrecruiters",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/editcompanies/1": {
+      "put": {
+        "tags": [
+          "companies"
+        ],
+        "summary": "update company",
+        "description": "actualiza la compañia",
+        "operationId": "updatecompany",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/updatecompanyrequest"
+                  },
+                  {
+                    "example": {
+                      "name": "BABEL",
+                      "email": "babel@gmail.com",
+                      "location": "San Jose, Costa Rica"
+                    }
+                  }
+                ]
+              },
+              "example": {
+                "name": "BABEL",
+                "email": "babel@gmail.com",
+                "location": "San Jose, Costa Rica"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/delitecompanies/2": {
+      "delete": {
+        "tags": [
+          "companies"
+        ],
+        "summary": "delete companies",
+        "description": "Elimina la compañia",
+        "operationId": "deletecompanies",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/getallcompanies": {
+      "get": {
+        "tags": [
+          "companies"
+        ],
+        "summary": "get all companies",
+        "description": "Obtiene todas las compañias",
+        "operationId": "getallcompanies",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/aplicationjob": {
+      "post": {
+        "tags": [
+          "aplication"
+        ],
+        "summary": "create aplication",
+        "description": "Crea una aplicación",
+        "operationId": "createaplication",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/createaplicationrequest"
+                  },
+                  {
+                    "example": {
+                      "name": "full stak ",
+                      "description": "descripcion del puesto con conocimientos en Node.js, JAVA, react y html y css",
+                      "date_share": "2023/06/27",
+                      "uer_id": 1,
+                      "company_id": 4
+                    }
+                  }
+                ]
+              },
+              "example": {
+                "name": "full stak ",
+                "description": "descripcion del puesto con conocimientos en Node.js, JAVA, react y html y css",
+                "date_share": "2023/06/27",
+                "uer_id": 1,
+                "company_id": 4
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/addinterviewaplicationjob/1": {
+      "put": {
+        "tags": [
+          "aplication"
+        ],
+        "summary": "add interview",
+        "description": "Agrega una entrevista a una aplicación",
+        "operationId": "addinterview",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/addinterviewrequest"
+                  },
+                  {
+                    "example": {
+                      "aplication_job_id": 1
+                    }
+                  }
+                ]
+              },
+              "example": {
+                "aplication_job_id": 1
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/deleteaplicationjob/11": {
+      "delete": {
+        "tags": [
+          "aplication"
+        ],
+        "summary": "delete aplication",
+        "description": "Elimina una aplicación",
+        "operationId": "deleteaplication",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/editaplicationjob/1": {
+      "put": {
+        "tags": [
+          "aplication"
+        ],
+        "summary": "update aplication",
+        "description": "Actualiza la aplicación",
+        "operationId": "updateaplication",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/updateaplicationrequest"
+                  },
+                  {
+                    "example": {
+                      "name": "desarrollador frontend",
+                      "description": "descripcion del puesto con conocimientos en React.js",
+                      "date_share": "2023/06/27"
+                    }
+                  }
+                ]
+              },
+              "example": {
+                "name": "desarrollador frontend",
+                "description": "descripcion del puesto con conocimientos en React.js",
+                "date_share": "2023/06/27"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/addinterviews": {
+      "post": {
+        "tags": [
+          "interviews"
+        ],
+        "summary": "add intervies",
+        "description": "Agrega una entrevista",
+        "operationId": "addintervies",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/addinterviesrequest"
+                  },
+                  {
+                    "example": {
+                      "date_interview": "2023-06-26",
+                      "time_interview": "13:00"
+                    }
+                  }
+                ]
+              },
+              "example": {
+                "date_interview": "2023-06-26",
+                "time_interview": "13:00"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/editinterviews/1": {
+      "put": {
+        "tags": [
+          "interviews"
+        ],
+        "summary": "edit interviews",
+        "description": "Edita una entrevista",
+        "operationId": "editinterviews",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/editinterviewsrequest"
+                  },
+                  {
+                    "example": {
+                      "date_interview": "2023-07-26",
+                      "time_interview": "14:00:59"
+                    }
+                  }
+                ]
+              },
+              "example": {
+                "date_interview": "2023-07-26",
+                "time_interview": "14:00:59"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/confirminterviews/1": {
+      "put": {
+        "tags": [
+          "interviews"
+        ],
+        "summary": "confirm interview",
+        "description": "Confirma una entrevista",
+        "operationId": "confirminterview",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/confirminterviewrequest"
+                  },
+                  {
+                    "example": {
+                      "confir_interview": true
+                    }
+                  }
+                ]
+              },
+              "example": {
+                "confir_interview": true
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/addrecruiter": {
+      "post": {
+        "tags": [
+          "recruiter"
+        ],
+        "summary": "add recruiter",
+        "description": "Agrega reclutadores",
+        "operationId": "addrecruiter",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/addrecruiterrequest"
+                  },
+                  {
+                    "example": {
+                      "name": "tatiana",
+                      "linkelin": "linkelin/tatiana",
+                      "email": "tatiana@gmail.com",
+                      "compani_id": 1
+                    }
+                  }
+                ]
+              },
+              "example": {
+                "name": "tatiana",
+                "linkelin": "linkelin/tatiana",
+                "email": "tatiana@gmail.com",
+                "compani_id": 1
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/editrecruiter/2": {
+      "put": {
+        "tags": [
+          "recruiter"
+        ],
+        "summary": "edit recruiter",
+        "description": "Edita reclutadores",
+        "operationId": "editrecruiter",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/editrecruiterrequest"
+                  },
+                  {
+                    "example": {
+                      "name": "tatiana",
+                      "linkelin": "linkelin/tatiana",
+                      "email": "tatiana@gmail.com",
+                      "compani_id": 1
+                    }
+                  }
+                ]
+              },
+              "example": {
+                "name": "tatiana",
+                "linkelin": "linkelin/tatiana",
+                "email": "tatiana@gmail.com",
+                "compani_id": 1
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/deliterecruiter/2": {
+      "delete": {
+        "tags": [
+          "recruiter"
+        ],
+        "summary": "delete recruiter",
+        "description": "Elimina Reclutadores",
+        "operationId": "deleterecruiter",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/getallrecluiter": {
+      "get": {
+        "tags": [
+          "recruiter"
+        ],
+        "summary": "get all recluiter",
+        "description": "Obtiene todos los reclutadores",
+        "operationId": "getallrecluiter",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "addusersrequest": {
+        "title": "addusersrequest",
+        "required": [
+          "name",
+          "email",
+          "password"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "name": "dama matarrita",
+          "email": "dama@gmail.com",
+          "password": "12345678910"
+        }
+      },
+      "loguinrequest": {
+        "title": "loguinrequest",
+        "required": [
+          "email",
+          "password"
+        ],
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "email": "dama@gmail.com",
+          "password": "12345678910"
+        }
+      },
+      "createcompanyrequest": {
+        "title": "createcompanyrequest",
+        "required": [
+          "name",
+          "email",
+          "location"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "location": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "name": "Oowlish",
+          "email": "Oowlish@gmail.com",
+          "location": "USA, California"
+        }
+      },
+      "updatecompanyrequest": {
+        "title": "updatecompanyrequest",
+        "required": [
+          "name",
+          "email",
+          "location"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "location": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "name": "BABEL",
+          "email": "babel@gmail.com",
+          "location": "San Jose, Costa Rica"
+        }
+      },
+      "createaplicationrequest": {
+        "title": "createaplicationrequest",
+        "required": [
+          "name",
+          "description",
+          "date_share",
+          "uer_id",
+          "company_id"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "date_share": {
+            "type": "string"
+          },
+          "uer_id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "company_id": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "example": {
+          "name": "full stak ",
+          "description": "descripcion del puesto con conocimientos en Node.js, JAVA, react y html y css",
+          "date_share": "2023/06/27",
+          "uer_id": 1,
+          "company_id": 4
+        }
+      },
+      "addinterviewrequest": {
+        "title": "addinterviewrequest",
+        "required": [
+          "aplication_job_id"
+        ],
+        "type": "object",
+        "properties": {
+          "aplication_job_id": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "example": {
+          "aplication_job_id": 1
+        }
+      },
+      "updateaplicationrequest": {
+        "title": "updateaplicationrequest",
+        "required": [
+          "name",
+          "description",
+          "date_share"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "date_share": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "name": "desarrollador frontend",
+          "description": "descripcion del puesto con conocimientos en React.js",
+          "date_share": "2023/06/27"
+        }
+      },
+      "addinterviesrequest": {
+        "title": "addinterviesrequest",
+        "required": [
+          "date_interview",
+          "time_interview"
+        ],
+        "type": "object",
+        "properties": {
+          "date_interview": {
+            "type": "string"
+          },
+          "time_interview": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "date_interview": "2023-06-26",
+          "time_interview": "13:00"
+        }
+      },
+      "editinterviewsrequest": {
+        "title": "editinterviewsrequest",
+        "required": [
+          "date_interview",
+          "time_interview"
+        ],
+        "type": "object",
+        "properties": {
+          "date_interview": {
+            "type": "string"
+          },
+          "time_interview": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "date_interview": "2023-07-26",
+          "time_interview": "14:00:59"
+        }
+      },
+      "confirminterviewrequest": {
+        "title": "confirminterviewrequest",
+        "required": [
+          "confir_interview"
+        ],
+        "type": "object",
+        "properties": {
+          "confir_interview": {
+            "type": "boolean"
+          }
+        },
+        "example": {
+          "confir_interview": true
+        }
+      },
+      "addrecruiterrequest": {
+        "title": "addrecruiterrequest",
+        "required": [
+          "name",
+          "linkelin",
+          "email",
+          "compani_id"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "linkelin": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "compani_id": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "example": {
+          "name": "tatiana",
+          "linkelin": "linkelin/tatiana",
+          "email": "tatiana@gmail.com",
+          "compani_id": 1
+        }
+      },
+      "editrecruiterrequest": {
+        "title": "editrecruiterrequest",
+        "required": [
+          "name",
+          "linkelin",
+          "email",
+          "compani_id"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "linkelin": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "compani_id": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "example": {
+          "name": "tatiana",
+          "linkelin": "linkelin/tatiana",
+          "email": "tatiana@gmail.com",
+          "compani_id": 1
+        }
+      }
+    },
+    "securitySchemes": {
+      "bearer": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  },
+  "security": [],
+  "tags": [
+    {
+      "name": "users",
+      "description": "Gestiona Usuarios"
+    },
+    {
+      "name": "companies",
+      "description": "Gestiona Empresas"
+    },
+    {
+      "name": "aplication",
+      "description": "Gestiona todas las aplicaciones"
+    },
+    {
+      "name": "interviews",
+      "description": "Gestion de Entrevistas"
+    },
+    {
+      "name": "recruiter",
+      "description": "Gestiona Reclutadores"
+    }
+  ]
+}
